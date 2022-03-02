@@ -701,7 +701,7 @@ exports.welcome = () =>{
 }
 exports.leave = () =>{
 	return`Yah kok out 😣 Mental aman kan kak? >.<
-Goodbye Beban Gruo`
+Goodbye Beban Grup`
 }
 exports.source = () =>{
 return`*------「 SOURCE CODE 」 ------*
