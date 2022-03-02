@@ -1184,6 +1184,35 @@ break
                 await alpha.groupAcceptInvite(result).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
             break
+	    case 'antidelete':
+		if (!m.isGroup) return reply(lang.groupOnly())
+                if (!(isGroupAdmins || isGroupOwner )) return reply(lang.adminOnly())
+	if (antidel === true) return reply(lang.anjawaUdhOn(command))
+	antidel = true
+	reply(lang.anjawaOn(command))
+	} else if (args[0] === "off") {
+	if (antidel === false) return
+	antidel = false
+	reply(lang.anjawaOff(command))
+	} else if (!q) {
+          sendButMessage(from, `MODE ANTI DELETE`, `Choose one`, [
+            {
+              buttonId: 'antidelete on',
+              buttonText: {
+                displayText: `On`,
+              },
+              type: 1,
+            },
+            {
+              buttonId: 'antidelete off',
+              buttonText: {
+                displayText: `Off`,
+              },
+              type: 1,
+            },
+          ]);
+        }
+        break;
             case 'tagall': case 'infoall':
                 if (!m.isGroup) return reply(lang.groupOnly())
                 if (!(isGroupAdmins || isGroupOwner )) return reply(lang.adminOnly())
